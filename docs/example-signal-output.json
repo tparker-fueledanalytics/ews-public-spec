@@ -1,0 +1,7 @@
+{
+  "signal_id": "inventory_turns_drift_example",
+  "eligible": true,
+  "severity": "WATCH",
+  "confidence": 0.61,
+  "rationale": "Inventory turns have declined across three consecutive periods with low volatility, suggesting emerging regime drift rather than short-term noise."
+}
