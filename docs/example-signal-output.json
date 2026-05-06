@@ -1,7 +1,23 @@
 {
-  "signal_id": "inventory_turns_drift_example",
-  "eligible": true,
-  "severity": "WATCH",
-  "confidence": 0.61,
-  "rationale": "Inventory turns have declined across three consecutive periods with low volatility, suggesting emerging regime drift rather than short-term noise."
+  "classification_id": "synthetic_inventory_turns_deviation_example",
+  "classification_eligible": true,
+  "classification": "MODERATE_THRESHOLD_RELATIVE_DEVIATION",
+  "metric_name": "Synthetic inventory turns index",
+  "baseline_period": "P1-P6",
+  "recent_period": "P7-P9",
+  "direction": "decrease",
+  "persistence_periods": 3,
+  "volatility_condition": "within_documented_synthetic_example_limit",
+  "threshold_rule": "recent_period_mean differs from baseline_period_mean by documented threshold",
+  "rationale": "The fabricated recent-period values are below the fabricated baseline-period mean for three consecutive abstract periods under the documented threshold rule.",
+  "non_claims": {
+    "not_forecast": true,
+    "not_recommendation": true,
+    "not_alert": true,
+    "not_monitoring": true,
+    "not_root_cause_inference": true,
+    "not_financial_impact_estimate": true,
+    "not_production_output": true,
+    "not_customer_or_pilot_evidence": true
+  }
 }
