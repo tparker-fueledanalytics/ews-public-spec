@@ -1,87 +1,131 @@
 # Early Warning System — Public Specification
+#Fueled Analytics is a brand of Accelerato, LLC. © 2026 Accelerato, LLC. All rights reserved
 
-⚠️ **Non-Production Documentation**
+## Non-Production Documentation
 
-This repository contains a **public, non-production specification** that documents how
-early warning signals for operational and financial KPIs are *conceptually* defined and evaluated.
+This repository contains a public, non-production specification for Fueled Analytics EWS v1.x.
 
-It does **not** contain live code, real data, deployable logic, or a working monitoring system.
+EWS v1.x is a deterministic, bounded classification prototype. It evaluates historical baseline behavior against recent-period deviation using explicit rules related to magnitude, direction, consistency, and threshold-relative severity.
 
-Working prototypes are maintained separately and are shown only via guided walkthroughs.
+This repository does not contain live code, real data, deployable logic, authentication, hosted services, production workflows, or a working software system.
 
----
+All examples are fabricated, synthetic, or public-safe.
 
 ## Purpose
 
-The goal of this repository is to provide clarity into:
-- How meaningful early warning signals differ from noise
-- Why false positives erode operator trust
-- How restraint, persistence, and context matter more than volume
+The purpose of this repository is to document the public interpretation boundary for EWS v1.x.
+
+It provides clarity into:
+
+- how deterministic deviation classifications are defined
+- how recent-period behavior is compared against a historical baseline
+- how persistence and direction are represented
+- how silence can be a valid output when rule criteria are not met
+- how generated outputs should and should not be interpreted
 
 This material exists for discussion, review, and work-sample purposes only.
 
----
-
 ## What This Is
 
-- A conceptual specification of early warning signal thinking
-- Fabricated example inputs and outputs
-- Language used to evaluate signal quality and confidence
-- A reference artifact for walkthrough conversations
+This is:
 
----
+- a public specification for bounded EWS v1.x interpretation
+- a documentation artifact for deterministic classification logic
+- a reference for synthetic or fabricated example outputs
+- a public-safe work-sample artifact
+- a boundary document for what EWS does and does not claim
 
 ## What This Is Not
 
-- A SaaS product
-- A monitoring or alerting tool
-- Production or reusable code
-- A real-time system
-- A self-serve demo or implementation guide
+This is not:
 
----
+- a SaaS product
+- a production analytics system
+- a monitoring system
+- an alerting tool
+- a dashboard
+- a forecasting model
+- a decision-support system
+- a recommendation engine
+- a financial-impact estimator
+- a root-cause analysis system
+- production or reusable code
+- a real-time system
+- a self-serve demo
+- an implementation guide
+- evidence of customer deployment
+- evidence of production readiness
 
 ## Core Concepts
 
-### Early Warning vs Alerts
-Early warning signals are designed to identify **emerging operational risk** before outcomes are fully visible.
-They are intentionally conservative and do not fire on isolated anomalies.
+### Baseline vs Recent Period
+
+EWS v1.x compares a defined historical baseline period against a defined recent period.
+
+The comparison is deterministic and rule-based.
+
+The output describes whether the recent period differs from the baseline under documented thresholds.
 
 ### Drift vs Noise
-- **Noise**: short-term volatility without persistence
-- **Drift**: sustained directional change across multiple periods
 
-Only drift is considered actionable.
+For this public specification:
 
-### Signal Restraint
-The system is designed to **withhold signals** unless predefined qualification criteria are met.
-Silence is considered a valid and often correct outcome.
+- Noise means short-term variation that does not meet documented persistence or threshold criteria.
+- Drift means a sustained directional deviation that meets documented persistence and threshold criteria.
 
----
+These are classification terms only.
 
-## Signal Qualification (Conceptual)
+They do not imply prediction, causality, financial impact, operational risk, or required action.
 
-Signals are evaluated using a combination of:
-- **Deviation** from historical baselines
-- **Persistence** across consecutive periods
-- **Velocity** (rate of change)
-- **Context** (seasonality, operating model)
+### Silence by Default
 
-Only when these conditions align does a signal become eligible for action.
+EWS v1.x is intentionally quiet by default.
 
-This qualification layer is commonly referred to as a **Signal Gate**.
+If documented rule criteria are not met, no classification output is produced.
 
----
+Silence is a valid output state.
 
-## Example Signal Output (Fabricated)
+Silence does not mean that no issue exists. It means only that the documented EWS criteria were not met for the evaluated data.
 
-The following is a **static, fabricated example** for illustration only:
+### Deterministic Classification Gate
+
+EWS v1.x uses a deterministic classification gate.
+
+A metric becomes classification-eligible only when documented criteria are met.
+
+Criteria may include:
+
+- deviation from a historical baseline
+- direction of change
+- persistence across consecutive periods
+- threshold-relative severity
+- missing-data sufficiency
+- documented context flags, where explicitly provided
+
+The classification gate does not produce recommendations, alerts, forecasts, probabilities, root-cause explanations, or operational instructions.
+
+## Example Classification Output
+
+The following is a static, fabricated example for illustration only:
 
 ```json
 {
-  "signal_id": "cash_conversion_cycle_drift_example",
-  "eligible": true,
-  "severity": "WATCH",
-  "confidence": 0.64,
-  "rationale": "Cash conversion cycle has widened for three consecutive periods with increasing slope, indicating potential regime drift rather than short-term volatility."
+  "classification_id": "synthetic_cycle_time_deviation_example",
+  "classification_eligible": true,
+  "classification": "MODERATE_THRESHOLD_RELATIVE_DEVIATION",
+  "baseline_period": "P1-P6",
+  "recent_period": "P7-P9",
+  "direction": "increase",
+  "persistence_periods": 3,
+  "threshold_rule": "recent_period_mean exceeds baseline_mean by documented threshold",
+  "rationale": "The fabricated recent-period mean is above the fabricated baseline mean for three consecutive abstract periods under the documented threshold rule.",
+  "non_claims": {
+    "not_forecast": true,
+    "not_recommendation": true,
+    "not_alert": true,
+    "not_monitoring": true,
+    "not_root_cause_inference": true,
+    "not_financial_impact_estimate": true,
+    "not_production_output": true
+  }
 }
