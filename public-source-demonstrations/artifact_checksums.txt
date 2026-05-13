@@ -1,0 +1,29 @@
+# Artifact Checksums
+
+Generated: 2026-05-12T19:53:58Z
+Algorithm: SHA-256
+
+## Run 001
+
+**File:** `run_001/canonical_output.json`
+**SHA-256:** `0872576121ee055054f4644855ef8dde8a8865b8b8d6733f15a9355d970d02a3`
+**Size:** 50.6 KB
+
+**File:** `run_001/signal_brief.html`
+**SHA-256:** `8f26e606431792ec42842441bb9445a8c7ec823778466f1c545ae9bba16ae504`
+**Size:** 72.1 KB
+
+## Verification
+
+To verify on macOS/Linux:
+```
+shasum -a 256 run_001/canonical_output.json
+shasum -a 256 run_001/signal_brief.html
+```
+
+## Notes
+
+- Canonical JSON is the source-of-truth artifact.
+- HTML Signal Brief is derived from canonical JSON.
+- These checksums confirm artifact integrity for portfolio and governance use.
+- Checksums do not constitute certification of the underlying data.
