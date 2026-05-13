@@ -25,6 +25,25 @@ It provides clarity into:
 
 This material exists for discussion, review, and work-sample purposes only.
 
+## Public-Source Demonstration Artifacts
+
+This repository may include public-source demonstration artifacts generated from frozen public dataset snapshots, such as public agency datasets.
+
+These artifacts are provided to show EWS artifact structure, evidence packaging, manifest traceability, and governed output boundaries.
+
+Public-source demonstration artifacts may include:
+
+- static HTML Pilot Execution Briefs
+- static PDF Pilot Execution Briefs
+- source registers
+- manifest excerpts
+- validation receipt excerpts
+- artifact hashes
+
+These artifacts are not generated from customer data, private data, production data, design-partner data, or live user uploads.
+
+They are not live EWS execution, dashboards, monitoring surfaces, alerts, recommendations, forecasts, root-cause analysis, causal inference, financial-impact analysis, SaaS claims, customer-ready claims, or production deployment claims.
+
 ## What This Is
 
 This is:
@@ -34,6 +53,7 @@ This is:
 - a reference for synthetic or fabricated example outputs
 - a public-safe work-sample artifact
 - a boundary document for what EWS does and does not claim
+- a home for static public-source demonstration artifacts generated from frozen public dataset snapshots
 
 ## What This Is Not
 
@@ -55,6 +75,10 @@ This is not:
 - an implementation guide
 - evidence of customer deployment
 - evidence of production readiness
+- a public execution environment
+- a public upload flow
+- a live data feed
+- a hosted EWS application
 
 ## Core Concepts
 
